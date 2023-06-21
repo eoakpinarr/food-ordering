@@ -16,10 +16,6 @@ const İndex = () => {
       </Head>
       <Header />
       <Home />
-      <div className='p-20 container mx-auto '>
-        <Input />
-      </div>
-
     </div>
   )
 }
