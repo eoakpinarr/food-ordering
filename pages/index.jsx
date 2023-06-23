@@ -5,6 +5,7 @@ import Header from '@/components/layout/Header'
 import Carousel from '@/components/ui/Carousel'
 import Campaigns from '@/components/ui/Campaigns'
 import Input from '@/components/form/Input'
+import Footer from '@/components/layout/Footer'
 
 const İndex = () => {
   return (
@@ -16,6 +17,7 @@ const İndex = () => {
       </Head>
       <Header />
       <Home />
+      <Footer />
     </div>
   )
 }
