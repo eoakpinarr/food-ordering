@@ -6,7 +6,7 @@ import Carousel from '@/components/ui/Carousel'
 import Reservation from '@/components/ui/Reservation'
 import React from 'react'
 
-const Index = () => {
+const Home = () => {
   return (
     <div className=''>
       <Carousel />
@@ -19,4 +19,4 @@ const Index = () => {
   )
 }
 
-export default Index
+export default Home
