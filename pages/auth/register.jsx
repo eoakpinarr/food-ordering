@@ -2,10 +2,10 @@ import Input from '@/components/form/Input'
 import Title from '@/components/ui/Title'
 import React from 'react'
 import { useFormik } from 'formik'
-import { LoginSchema } from '@/schema/LoginSchema'
 import Link from 'next/link'
+import { RegisterSchema } from '@/schema/RegisterSchema'
 
-const Login = () => {
+const Register = () => {
 
     const onSubmit = async (values, actions) => {
         await new Promise((resolve) => setTimeout(resolve, 4000));
@@ -14,38 +14,58 @@ const Login = () => {
 
     const { values, handleSubmit, handleChange, handleBlur, errors, touched } = useFormik({
         initialValues: {
+            fullName: '',
             email: '',
             password: '',
+            confirmPassword: '',
         },
         onSubmit,
-        validationSchema: LoginSchema,
+        validationSchema: RegisterSchema,
     });
 
     const inputs = [
         {
             id: 1,
+            name: 'fullName',
+            type: 'text',
+            placeholder: 'Your Full Name',
+            value: values.fullName,
+            errorMessage: errors.fullName,
+            touched: touched.fullName
+        },
+        {
+            id: 2,
             name: 'email',
             type: 'email',
-            placeholder: 'Your Email Address',
+            placeholder: 'Your Email',
             value: values.email,
             errorMessage: errors.email,
             touched: touched.email
         },
         {
-            id: 2,
+            id: 3,
             name: 'password',
             type: 'password',
             placeholder: 'Your Password',
             value: values.password,
             errorMessage: errors.password,
             touched: touched.password
-        }
+        },
+        {
+            id: 4,
+            name: 'confirmPassword',
+            type: 'password',
+            placeholder: 'Your Password Again',
+            value: values.confirmPassword,
+            errorMessage: errors.confirmPassword,
+            touched: touched.confirmPassword
+        },
     ]
 
     return (
-        <div className='container mx-auto md:py-[210px] py-10'>
+        <div className='container mx-auto md:py-[165px]'>
             <form className='flex flex-col items-center my-20 md:w-1/2 w-full mx-auto' onSubmit={handleSubmit}>
-                <Title addClass={'text-[40px] mb-6'}>Login</Title>
+                <Title addClass={'text-[40px] mb-6'}>Register</Title>
                 <div className='flex flex-col gap-y-3 w-full'>
                     {inputs.map((input) => (
                         <Input
@@ -57,14 +77,10 @@ const Login = () => {
                     ))}
                 </div>
                 <div className='flex flex-col w-full gap-y-3 mt-6'>
-                    <button className='btn-primary'>LOGİN</button>
-                    <button className='btn-primary !bg-secondary'>
-                    <i className="fa fa-github mr-2 text-lg"></i>
-                        GİTHUB
-                    </button>
-                    <Link href={'/auth/register'}>
+                    <button className='btn-primary'>REGİSTER</button>
+                    <Link href={'/auth/login'}>
                         <span className='text-sm underline cursor-pointer text-secondary'>
-                            Do you no have an account?
+                            Do you have an account?
                         </span>
                     </Link>
                 </div>
@@ -73,4 +89,4 @@ const Login = () => {
     )
 }
 
-export default Login
+export default Register

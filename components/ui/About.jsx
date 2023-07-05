@@ -4,7 +4,7 @@ import Title from './Title'
 
 const About = () => {
     return (
-        <div className='bg-secondary py-14'>
+        <div className='bg-secondary md:py-[170px]'>
             <div className='container mx-auto flex items-center flex-wrap-reverse
             text-white gap-20 justify-center'>
                 <div className='grid place-content-center'>
