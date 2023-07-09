@@ -16,9 +16,10 @@ const Header = () => {
         <div className={`h-[5.5rem] z-50 relative ${router.asPath == "/" ? "bg-transparent" : "bg-secondary"}`}>
             <div className='container text-white mx-auto flex justify-between items-center h-full'>
                 <Logo />
-                <nav className={`sm:static absolute top-0 left-0 sm:w-auto sm:h-auto w-full h-screen sm:text-white text-black sm:bg-transparent bg-white sm:flex hidden 
+                <nav className={`sm:static absolute top-0 left-0 sm:w-auto sm:h-auto w-full h-screen sm:text-white 
+                text-black sm:bg-transparent bg-white sm:flex hidden 
                 ${isMenuModal === true && "!grid place-content-center"}`}>
-                    <ul className='flex gap-x-6 sm:flex-row flex-col items-center '>
+                    <ul className='flex gap-x-6 sm:flex-row flex-col items-center'>
                         <li className='px-[5px] py-[10px] uppercase hover:text-primary cursor-pointer'>
                             <Link href="/">Home</Link>
                         </li>
@@ -48,9 +49,9 @@ const Header = () => {
                     <Link href="/auth/login" >
                         <FaUserAlt className='hover:text-primary transition-all cursor-pointer' />
                     </Link>
-                    <a href="" >
+                    <Link href="/cart" >
                         <FaShoppingCart className='hover:text-primary transition-all cursor-pointer' />
-                    </a>
+                    </Link>
                     <button onClick={() => setIsSearchModal(!isSearchModal)}>
                         <FaSearch className='hover:text-primary transition-all cursor-pointer' />
                     </button>
