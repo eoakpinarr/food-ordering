@@ -1,14 +1,16 @@
 import Input from '@/components/form/Input'
 import Account from '@/components/profile/Account'
+import Orders from '@/components/profile/OrderProfile'
 import Password from '@/components/profile/Password'
 import Title from '@/components/ui/Title'
 import Image from 'next/image'
 import React, { useState } from 'react'
 import Login from '../auth/login'
-import OrderProfile from '@/components/profile/OrderProfile'
+import Products from '@/components/admin/Products'
+import OrderAdmin from '@/components/admin/OrderAdmin'
 
-const Profile = () => {
-  const [tabs, setTabs] = useState(0)
+const AdminProfile = () => {
+  const [tabs, setTabs] = useState(1)
 
   return (
     <div className='flex min-h-[calc(100vh_-_453px)] px-10 lg:flex-row flex-col lg:mt-5 mt-10'>
@@ -17,47 +19,59 @@ const Profile = () => {
         p-10 py-5 border border-b-0'>
           <Image
             className='rounded-full '
-            src={`/images/client2.jpg`}
+            src={`/images/admin.png`}
             alt=''
             width={100}
             height={100}
           />
-          <b className='text-2xl mt-1'>John Doe</b>
+          <b className='text-2xl mt-1'>Admin</b>
         </div>
         <ul className="text-center font-semibold">
           <li className={`border w-full p-3 cursor-pointer hover:bg-primary 
           hover:text-white transition-all ${tabs === 0 && "bg-primary text-white"
             }`}
             onClick={() => setTabs(0)}>
-            <i className="fa fa-home"></i>
-            <button className="ml-1 ">Account</button>
+            <i className="fa fa-cutlery"></i>
+            <button className="ml-1 ">Products</button>
           </li>
           <li className={`border w-full p-3 cursor-pointer hover:bg-primary 
           hover:text-white transition-all ${tabs === 1 && "bg-primary text-white"
             }`}
             onClick={() => setTabs(1)}>
-            <i className="fa fa-key"></i>
-            <button className="ml-1">Password</button>
+            <i className="fa fa-motorcycle"></i>
+            <button className="ml-1">Orders</button>
           </li>
           <li className={`border w-full p-3 cursor-pointer hover:bg-primary 
           hover:text-white transition-all ${tabs === 2 && "bg-primary text-white"
             }`}
             onClick={() => setTabs(2)}>
-            <i className="fa fa-motorcycle"></i>
-            <button className="ml-1">Orders</button>
+            <i className="fa fa-ellipsis-h"></i>
+            <button className="ml-1">Categories</button>
           </li>
           <li className={`border w-full p-3 cursor-pointer hover:bg-primary 
-          hover:text-white transition-all `}>
+          hover:text-white transition-all ${tabs === 3 && "bg-primary text-white"
+            }`}
+            onClick={() => setTabs(3)}>
+            <i className="fa fa-window-maximize"></i>
+            <button className="ml-1">Footer</button>
+          </li>
+          <li className={`border w-full p-3 cursor-pointer hover:bg-primary 
+          hover:text-white transition-all `}
+            onClick={() => setTabs(4)}>
+
             <i className="fa fa-sign-out"></i>
             <button className="ml-1">Exit</button>
           </li>
         </ul>
       </div>
-      {tabs === 0 && (<Account />)}
-      {tabs === 1 && (<Password />)}
-      {tabs === 2 && (<OrderProfile />)}
+      {tabs === 0 && (<Products />)}
+      {tabs === 1 && (<OrderAdmin />)}
+      {tabs === 2 && (<Password />)}
+      {tabs === 3 && (<Orders />)}
+      {tabs === 4 && (<Orders />)}
+
     </div>
   )
 }
 
-export default Profile
+export default AdminProfile
