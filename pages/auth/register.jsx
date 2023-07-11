@@ -63,8 +63,8 @@ const Register = () => {
     ]
 
     return (
-        <div className='container mx-auto md:py-[165px]'>
-            <form className='flex flex-col items-center my-20 md:w-1/2 w-full mx-auto' onSubmit={handleSubmit}>
+        <div className='container mx-auto min-h-[calc(100vh_-_273px)]'>
+            <form className='flex flex-col items-center md:w-1/2 w-full mx-auto' onSubmit={handleSubmit}>
                 <Title addClass={'text-[40px] mb-6'}>Register</Title>
                 <div className='flex flex-col gap-y-3 w-full'>
                     {inputs.map((input) => (

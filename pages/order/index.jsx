@@ -4,7 +4,7 @@ import Image from 'next/image'
 const Order = () => {
     return (
             <div className='overflow-x-auto'>
-                <div className="min-h-[calc(100vh_-_433px)] flex justify-center items-center flex-col p-10 min-w-[1000px]">
+                <div className="min-h-[calc(100vh_-_273px)] flex justify-center items-center flex-col p-10 min-w-[1000px]">
                 <div className='flex items-center flex-1 w-full max-h-28'>
                     <table className='text-sm text-center text-gray-500 w-full'>
                         <thead className='text-xs text-gray-400 uppercase bg-gray-700'>

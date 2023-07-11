@@ -45,7 +45,7 @@ const Customers = () => {
     ]
   };
   return (
-    <div className='container mx-auto mb-20 mt-12'>
+    <div className='container mx-auto mb-20'>
       <Title addClass={"text-[40px] text-center"}>What Says Our Customers</Title>
       <Slider {...settings} autoplay>
         <CustomerItem imgSrc="/images/client1.jpg" />

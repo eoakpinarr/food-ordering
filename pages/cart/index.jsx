@@ -4,9 +4,9 @@ import React from 'react'
 
 const Cart = () => {
     return (
-        <div className='min-h-[calc(100vh_-_433px)]'>
+        <div className='min-h-[calc(100vh_-_273px)]'>
             <div className='flex justify-between items-center md:flex-row flex-col'>
-                <div className='md:min-h-[calc(100vh_-_433px)] flex flex-1 items-center p-10 overflow-x-auto w-full'>
+                <div className='md:min-h-[calc(100vh_-_273px)] flex flex-1 items-center p-10 overflow-x-auto w-full'>
                     <table className='text-sm text-center text-gray-500 w-full'>
                         <thead className='text-xs text-gray-400 uppercase bg-gray-700'>
                             <tr>
@@ -33,7 +33,7 @@ const Cart = () => {
                         </tbody>
                     </table>
                 </div>
-                <div className='bg-secondary min-h-[calc(100vh_-_433px)] 
+                <div className='bg-secondary min-h-[calc(100vh_-_273px)] 
                 flex justify-center flex-col text-white p-14 md:w-auto w-full md:text-start text-center'>
                     <Title addClass={'text-[40px]'}>Cart Total</Title>
                     <div className='my-4'>

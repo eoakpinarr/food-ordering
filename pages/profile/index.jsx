@@ -11,7 +11,7 @@ const Profile = () => {
   const [tabs, setTabs] = useState(0)
 
   return (
-    <div className='flex min-h-[calc(100vh_-_453px)] px-10 lg:flex-row flex-col lg:mt-5 mt-10'>
+    <div className='flex min-h-[calc(100vh_-_293px)] px-10 lg:flex-row flex-col lg:mt-5 mt-10'>
       <div className='lg:w-80 w-100 flex-shrink-0'>
         <div className='relative flex flex-col items-center 
         p-10 py-5 border border-b-0'>

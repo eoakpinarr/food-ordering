@@ -8,12 +8,14 @@ import React, { useState } from 'react'
 import Login from '../auth/login'
 import Products from '@/components/admin/Products'
 import OrderAdmin from '@/components/admin/OrderAdmin'
+import CategoryAdmin from '@/components/admin/CategoryAdmin'
+import FooterAdmin from '@/components/admin/FooterAdmin'
 
 const AdminProfile = () => {
-  const [tabs, setTabs] = useState(1)
+  const [tabs, setTabs] = useState(0)
 
   return (
-    <div className='flex min-h-[calc(100vh_-_453px)] px-10 lg:flex-row flex-col lg:mt-5 mt-10'>
+    <div className='flex min-h-[calc(100vh_-_293px)] px-10 lg:flex-row flex-col lg:mt-5 mt-10'>
       <div className='lg:w-80 w-100 flex-shrink-0'>
         <div className='relative flex flex-col items-center 
         p-10 py-5 border border-b-0'>
@@ -66,10 +68,8 @@ const AdminProfile = () => {
       </div>
       {tabs === 0 && (<Products />)}
       {tabs === 1 && (<OrderAdmin />)}
-      {tabs === 2 && (<Password />)}
-      {tabs === 3 && (<Orders />)}
-      {tabs === 4 && (<Orders />)}
-
+      {tabs === 2 && (<CategoryAdmin />)}
+      {tabs === 3 && (<FooterAdmin />)}
     </div>
   )
 }

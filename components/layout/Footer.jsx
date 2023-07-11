@@ -4,7 +4,7 @@ import Title from '../ui/Title'
 const Footer = () => {
     return (
         <div className="bg-secondary text-white">
-          <div className="container mx-auto pt-16 pb-6">
+          <div className="container mx-auto pt-2 pb-2">
             <div className="flex md:justify-between justify-center text-center flex-wrap md:gap-y-0 gap-y-6 ">
               <div className="md:flex-1">
                 <Title addClass="text-[30px]">Contact Us</Title>
@@ -25,11 +25,11 @@ const Footer = () => {
               </div>
               <div className="md:flex-1">
                 <Title addClass="text-[38px]">Feane</Title>
-                <p className="mt-3">
+                <p>
                   Necessary, making this the first true generator on the Internet.
                   It uses a dictionary of over 200 Latin words, combined with
                 </p>
-                <div className="flex items-center justify-center mt-5 gap-x-2">
+                <div className="flex items-center justify-center mt-2 gap-x-2">
                   <a
                     href=""
                     className="w-8 h-8 grid place-content-center bg-white text-secondary rounded-full "
@@ -74,9 +74,6 @@ const Footer = () => {
                 </div>
               </div>
             </div>
-            <p className="text-center mt-10">
-              © 2022 All Rights Reserved By Free Html Templates
-            </p>
           </div>
         </div>
       );

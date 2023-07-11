@@ -19,7 +19,7 @@ const OrderAdmin = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr className='bg-secondary border-gray-700 hover:bg-primary transition-all'>
+                        <tr className='bg-secondary border-gray-700 transition-all'>
                             <td className='py-4 px-6 font-medium whitespace-nowrap hover:text-white'>63107..</td>
                             <td className='py-4 px-6 font-medium whitespace-nowrap hover:text-white'>Etem Oğulcan AKPINAR</td>
                             <td className='py-4 px-6 font-medium whitespace-nowrap hover:text-white'>$20</td>
