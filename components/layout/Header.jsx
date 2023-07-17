@@ -6,11 +6,13 @@ import { GiHamburgerMenu } from 'react-icons/gi'
 import { AiOutlineCloseCircle } from 'react-icons/ai'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
+import { useSelector } from 'react-redux'
 
 const Header = () => {
     const [isSearchModal, setIsSearchModal] = useState(false)
     const [isMenuModal, setIsMenuModal] = useState(false)
     const router = useRouter()
+    const cart = useSelector(state => state.cart)
 
     return (
         <div className={`h-[5.5rem] z-50 relative ${router.asPath == "/" ? "bg-transparent" : "bg-secondary"}`}>
@@ -34,9 +36,9 @@ const Header = () => {
                         </li>
                     </ul>
                     {isMenuModal && (
-                        <button 
-                        onClick={() => setIsMenuModal(false)}
-                        className='absolute top-4 right-4 z-50'
+                        <button
+                            onClick={() => setIsMenuModal(false)}
+                            className='absolute top-4 right-4 z-50'
                         >
                             <AiOutlineCloseCircle
                                 className='hover:text-primary transition-all'
@@ -50,7 +52,13 @@ const Header = () => {
                         <FaUserAlt className='hover:text-primary transition-all cursor-pointer' />
                     </Link>
                     <Link href="/cart" >
-                        <FaShoppingCart className='hover:text-primary transition-all cursor-pointer' />
+                        <span className='relative'>
+                            <FaShoppingCart className='hover:text-primary transition-all cursor-pointer' />
+                            <span className='w-4 h-4 bg-primary text-xs grid place-content-center rounded-full
+                            absolute -top-2 -right-3 text-black font-bold'>
+                                {cart.products.length === 0 ? "0" : cart.products.length}
+                            </span>
+                        </span>
                     </Link>
                     <button onClick={() => setIsSearchModal(!isSearchModal)}>
                         <FaSearch className='hover:text-primary transition-all cursor-pointer' />
