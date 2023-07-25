@@ -1,11 +1,5 @@
-import Input from '@/components/form/Input'
-import Account from '@/components/profile/Account'
-import Orders from '@/components/profile/OrderProfile'
-import Password from '@/components/profile/Password'
-import Title from '@/components/ui/Title'
 import Image from 'next/image'
 import React, { useState } from 'react'
-import Login from '../auth/login'
 import Products from '@/components/admin/Products'
 import OrderAdmin from '@/components/admin/OrderAdmin'
 import CategoryAdmin from '@/components/admin/CategoryAdmin'
@@ -66,10 +60,13 @@ const AdminProfile = () => {
           </li>
         </ul>
       </div>
-      {tabs === 0 && (<Products />)}
-      {tabs === 1 && (<OrderAdmin />)}
-      {tabs === 2 && (<CategoryAdmin />)}
-      {tabs === 3 && (<FooterAdmin />)}
+      <div className='mb-10'>
+        {tabs === 0 && (<Products />)}
+        {tabs === 1 && (<OrderAdmin />)}
+        {tabs === 2 && (<CategoryAdmin />)}
+        {tabs === 3 && (<FooterAdmin />)}
+      </div>
+
     </div>
   )
 }
