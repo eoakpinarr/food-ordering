@@ -4,8 +4,12 @@ import React from 'react'
 import { useFormik } from 'formik'
 import { LoginSchema } from '@/schema/LoginSchema'
 import Link from 'next/link'
+import { useSession, signIn } from "next-auth/react"
 
 const Login = () => {
+
+    const { data: session } = useSession()
+    console.log(session)
 
     const onSubmit = async (values, actions) => {
         await new Promise((resolve) => setTimeout(resolve, 4000));
@@ -44,7 +48,7 @@ const Login = () => {
 
     return (
         <div className='container mx-auto min-h-[calc(100vh_-_273px)]'>
-            <form className='flex flex-col items-center md:w-1/2 w-full mx-auto' onSubmit={handleSubmit}>
+            <form className='flex flex-col items-center md:h-1/2 md:w-1/2 w-full mx-auto ' onSubmit={handleSubmit}>
                 <Title addClass={'text-[40px] mb-6'}>Login</Title>
                 <div className='flex flex-col gap-y-3 w-full'>
                     {inputs.map((input) => (
@@ -57,9 +61,12 @@ const Login = () => {
                     ))}
                 </div>
                 <div className='flex flex-col w-full gap-y-3 mt-6'>
-                    <button className='btn-primary'>LOGİN</button>
-                    <button className='btn-primary !bg-secondary'>
-                    <i className="fa fa-github mr-2 text-lg"></i>
+                    <button className='btn-primary' type='submit'>
+                        LOGİN
+                    </button>
+                    <button className='btn-primary !bg-secondary'
+                        type='button' onClick={() => signIn("github")}>
+                        <i className="fa fa-github mr-2 text-lg"></i>
                         GİTHUB
                     </button>
                     <Link href={'/auth/register'}>
