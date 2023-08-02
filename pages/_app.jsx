@@ -5,6 +5,8 @@ import Layout from "@/layout/Layout";
 import store from "@/redux/store";
 import { Provider } from "react-redux";
 import { SessionProvider } from "next-auth/react"
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function App({
   Component,
@@ -14,6 +16,7 @@ export default function App({
     <SessionProvider session={session}>
       <Provider store={store}>
         <Layout>
+          <ToastContainer />
           <Component {...pageProps} />
         </Layout>
       </Provider>

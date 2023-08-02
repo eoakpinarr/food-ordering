@@ -4,16 +4,30 @@ import React from 'react'
 import { useFormik } from 'formik'
 import { LoginSchema } from '@/schema/LoginSchema'
 import Link from 'next/link'
-import { useSession, signIn } from "next-auth/react"
+import { useSession, signIn, getSession } from "next-auth/react"
+import { toast } from 'react-toastify'
 
 const Login = () => {
 
     const { data: session } = useSession()
-    console.log(session)
+    console.log(session);
 
     const onSubmit = async (values, actions) => {
-        await new Promise((resolve) => setTimeout(resolve, 4000));
-        actions.resetForm();
+
+        const { email, password } = values;
+        let options = { redirect: false, email, password }
+
+        try {
+            const res = await signIn("credentials", options)
+            if (res.status === 200) {
+                toast.success("User login succesfully!")
+            }
+        } catch (error) {
+            console.log(error)
+            toast.error(error.response.data.message)
+        }
+        //await new Promise((resolve) => setTimeout(resolve, 4000));
+        //actions.resetForm();
     };
 
     const { values, handleSubmit, handleChange, handleBlur, errors, touched } = useFormik({
