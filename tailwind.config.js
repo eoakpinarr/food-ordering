@@ -19,7 +19,7 @@ module.exports = {
         }
       },
       colors: {
-        primary: "red",
+        primary: "orange",
         secondary: "#222831",
         danger: "#FF0000",
         success: 'green'

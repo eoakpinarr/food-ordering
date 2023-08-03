@@ -4,10 +4,27 @@ import Products from '@/components/admin/Products'
 import OrderAdmin from '@/components/admin/OrderAdmin'
 import CategoryAdmin from '@/components/admin/CategoryAdmin'
 import FooterAdmin from '@/components/admin/FooterAdmin'
+import axios from 'axios'
+import { useRouter } from 'next/router'
+import { toast } from 'react-toastify'
 
 const AdminProfile = () => {
   const [tabs, setTabs] = useState(0)
+  const {push} = useRouter()
 
+  const closeAdminAccount = async () => {
+    try {
+      if (confirm("Admin hesabında çıkış yapmak istediğinize emin misiniz ? ")) {
+        const res = await axios.put(`${process.env.NEXT_PUBLIC_API_URL}/admin`)
+        if (res.status === 200) {
+          push("/admin")
+          toast.success("Hesaptan çıkış yapıldı (Admin)")
+        }
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
   return (
     <div className='flex min-h-[calc(100vh_-_293px)] px-10 lg:flex-row flex-col lg:mt-5 mt-10'>
       <div className='lg:w-80 w-100 flex-shrink-0'>
@@ -53,8 +70,8 @@ const AdminProfile = () => {
           </li>
           <li className={`border w-full p-3 cursor-pointer hover:bg-primary 
           hover:text-white transition-all `}
-            onClick={() => setTabs(4)}>
-
+            onClick={closeAdminAccount}
+          >
             <i className="fa fa-sign-out"></i>
             <button className="ml-1">Exit</button>
           </li>
@@ -69,6 +86,24 @@ const AdminProfile = () => {
 
     </div>
   )
+}
+
+
+//Giriş yapmadan admin profil sayfasına girmek isterse admin logine yönlendir.
+export const getServerSideProps = (ctx) => {
+  const myCookie = ctx.req?.cookies || "";
+  if (myCookie.token !== process.env.ADMIN_TOKEN) {
+    return {
+      redirect: {
+        destination: "/admin",
+        permanent: false,
+      }
+    }
+  }
+  return {
+    props: {}
+  }
+
 }
 
 export default AdminProfile
